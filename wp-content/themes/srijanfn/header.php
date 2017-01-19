@@ -51,12 +51,14 @@
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="main-navigation col-9" role="navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'srijanfn' ); ?></button>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'srijanfn' ); ?></button>
+				<div class="main-nav-menu">
 				<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
 				<ul class="secondary-nav">
 					<li class="get-involved"><a href="get-involved">Get Involved</a></li>
 					<li class="search"><a href="#search"><i class="fa fa-search"></i></a></li>
 				</ul>
+				</div>
 			</nav><!-- #site-navigation -->
 
 		</div>
