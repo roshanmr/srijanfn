@@ -20,6 +20,20 @@ $(document).ready(function(){
       $(this).parents('body').toggleClass('fixed');
   });
 
+
+  // Search interaction
+
+  $('.main-navigation .search a').click(function(e){
+      $(this).parent().toggleClass('active');
+      $(this).siblings('.search-bar').find('#search').focus();
+      e.stopPropagation();
+  });
+
+  $(document).click(function(e){
+      e.stopPropagation();
+      $(this).find('.search').removeClass('active');
+  });
+
   // InView Plugin Code
   if ($(window).width() > 1024) {
 
