@@ -29,6 +29,10 @@ $(document).ready(function(){
       e.stopPropagation();
   });
 
+  $('.main-navigation .search .search-field').click(function(e){
+      e.stopPropagation();
+  });
+
   $(document).click(function(e){
       e.stopPropagation();
       $(this).find('.search').removeClass('active');

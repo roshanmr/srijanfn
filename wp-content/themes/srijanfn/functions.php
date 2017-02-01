@@ -148,3 +148,26 @@ function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
     $html = preg_replace( '/(width|height|sizes)=\"\d*\"\s/', "", $html );
     return $html;
 }
+
+
+// Displaying main navigation in custom footer
+
+function register_my_menus() {
+  register_nav_menus(
+    array(
+      'footer_nav' => __( 'Footer Menu' ),
+      'social_links' => __( 'Social Links' )
+    )
+  );
+}
+add_action( 'init', 'register_my_menus' );
+
+function custom_footer_menu() {
+  wp_nav_menu(array(
+    'container' => '',
+    'menu_id' => 'footer_nav',
+    'fallback_cb' => 'footer_nav',
+    'theme_location' => 'footer',
+  ));
+}
+add_action('hook_footer','footer_menu'); 

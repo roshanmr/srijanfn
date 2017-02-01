@@ -14,11 +14,11 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'srijanfn' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'srijanfn' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'srijanfn' ), 'srijanfn', '<a href="https://automattic.com/" rel="designer">Roshan Ravi, Srijan.net</a>' ); ?>
-		</div><!-- .site-info -->
+		<?php wp_nav_menu( array( 'theme_location' => 'footer_nav', 'menu_id' => 'footer_menu' ) ); ?>
+		<?php 
+			//wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'footer_menu' ) ); 
+		?>
+		<?php wp_nav_menu( array( 'theme_location' => 'social_links', 'menu_id' => 'social_links' ) ); ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

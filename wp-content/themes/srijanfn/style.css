@@ -569,7 +569,7 @@ a:active {
 
 .main-navigation li {
     float: left;
-    position: relative;
+    position: static;
 }
 
 .main-navigation a {
@@ -577,13 +577,26 @@ a:active {
     text-decoration: none;
 }
 
-.main-navigation ul ul {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-    float: left;
+.main-navigation ul .menu-item-has-children .sub-menu {
     position: absolute;
-    top: 1.5em;
-    left: -999em;
-    z-index: 99999;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    top: auto;
+    top: 90px;
+    opacity: 0;
+    overflow: hidden;
+    height: 0;
+    background: #c83a23;
+    transition: 0.2s ease-in-out;
+    transition-delay: 0.1s;
+}
+
+.main-navigation ul .menu-item-has-children:hover .sub-menu {
+	opacity: 1;
+	height: 100px;
+	top: 96px;
 }
 
 .main-navigation ul ul ul {
@@ -592,10 +605,46 @@ a:active {
 }
 
 .main-navigation ul ul a {
-    width: 200px;
+    width: auto;
+    line-height: normal;
+    height: auto;
+    color: #fff;
+    font-weight: 400;
+    padding: 20px 5px;
+    border-bottom: 1px solid #c83a23;
+    transition: 0.2s ease-in-out;
 }
 
-.main-navigation ul ul li {}
+.main-navigation .menu-item-has-children:hover > a:before {
+    content: "";
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #c83a23;
+    position: absolute;
+    bottom: 0;
+    left: 35%;
+}
+
+.main-navigation ul ul li a:hover {
+	color: #fff;
+	border-color: #fff;
+}
+
+.main-navigation ul ul li a:before {
+	display: none;
+}
+
+.main-navigation ul ul li {
+	margin-top: -20px;
+	opacity: 0;
+	transition: 0.2s ease-in-out;
+}
+
+.main-navigation .menu-item-has-children:hover li {
+	margin-top: 0;
+	opacity: 1;
+	transition-delay: 0.15s;
+}
 
 .main-navigation li:hover > a,
 .main-navigation li.focus > a {}
@@ -608,7 +657,7 @@ a:active {
 
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
-    left: auto;
+    
 }
 
 .main-navigation ul ul li:hover > ul,
@@ -1076,7 +1125,7 @@ div#wpadminbar {
 .slider {
     display: block;
     width: 100%;
-    height: calc(82vh - 100px);
+    height: 400px;
     overflow: hidden;
     position: relative;
     list-style: none;
@@ -1087,12 +1136,12 @@ div#wpadminbar {
 .hero-banner {
     position: relative;
     overflow: hidden;
-    height: calc(82vh - 100px);
+    height: 400px;
 }
 
 .slider li {
     width: 100%;
-    height: calc(82vh - 100px);
+    height: 400px;
     overflow: hidden;
 }
 
@@ -1101,7 +1150,7 @@ div#wpadminbar {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: calc(82vh - 100px);
+    height: 400px;
     overflow: hidden;
     position: absolute;
     left: 0;
@@ -1145,7 +1194,8 @@ div#wpadminbar {
     color: #555;
     align-items: center;
     justify-content: center;
-    height: calc(82vh - 100px);
+    /*height: calc(82vh - 100px);*/
+    height: 400px;
 }
 
 .hero-content article {
@@ -1305,7 +1355,7 @@ a {
 }
 
 .page-section .section-heading {
-    margin: 0 0 1.5em;
+    margin: 0 0 2em;
     font-size: 1.3em;
     text-transform: uppercase;
     letter-spacing: 1.2px;
